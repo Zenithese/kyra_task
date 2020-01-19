@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-function list({ videos, nextPage }) {
+function list({ videos }) {
 
     const videoList = videos.length ? (
         videos.map((item, i) => {
             let video = item.snippet;
             return (
-                <ul>
-                    <li className="col s3" key={`video-${i}`}>
-                        <div className="card hovering">
-                            <div className="card-image">
-                                <img src={`${item.snippet.thumbnails.medium.url}`} />
-                            </div>
-                            <div className="card-content">
-                                <p className="truncate"><a href={`https://www.youtube.com/watch?v=${video.resourceId.videoId}`}>{video.title}</a></p>
-                            </div>
+                <div className="col s3" key={`video-${i}`}>
+                    <div className="card hoverable">
+                        <div className="card-image">
+                            <img src={`${item.snippet.thumbnails.medium.url}`} alt="" />
                         </div>
-                    </li>
-                </ul>
+                        <div className="card-content">
+                            <p className="truncate"><a href={`https://www.youtube.com/watch?v=${video.resourceId.videoId}`}>{video.title}</a></p>
+                        </div>
+                    </div>
+                </div>
             )
         })
         
