@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+kyra_task/src/secrets.js
+kyra_task/src/apis
