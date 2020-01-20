@@ -3,17 +3,31 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
-.hovering {
-  -webkit-transition: -webkit-box-shadow .25s;
-  transition: -webkit-box-shadow .25s;
-  transition: box-shadow .25s;
-  transition: box-shadow .25s, -webkit-box-shadow .25s;
+.pageButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
+.previousButton {
+  cursor: pointer;
+  font-size: 50px;
+  margin-bottom: 40px;
+}
 
-.hovering:hover{
-  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+.previousButton:hover {
+  color: red !important;
+}
+
+.nextButton {
+  cursor: pointer;
+  font-size: 50px;
+  margin-bottom: 40px;
+  float: right;
+}
+
+.nextButton:hover {
+  color: red !important;
 }
 
 .materialize-red {

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_KEY, CHANNEL_ID } from './secrets'
-import List from './list'
+import { API_KEY, CHANNEL_ID } from './secrets';
+import List from './list';
+import Stats from './chart';
 
 function App() {
 
-  const [ videos, setVideos ] = useState([])
-  const [ nextPage, setNextPage ] = useState('')
-  const [ prevPage, setPrevPage ] = useState('')
-  const [ pageToken, setPageToken ] = useState('')
+  const [ videos, setVideos ] = useState([]);
+  const [ nextPage, setNextPage ] = useState('');
+  const [ prevPage, setPrevPage ] = useState('');
+  const [ pageToken, setPageToken ] = useState('');
   const [ prevPageToken, setPrevPageToken ] = useState('');
+  // const [ data, setData ] = useState([]); 
 
   const handleClick = () => {
     setNextPage(pageToken);
@@ -71,10 +73,11 @@ function App() {
   return (
     <div>
       <List videos={videos} nextPage={nextPage}/>
-      <div style={{display: 'flex', width: '100%', justifyContent: 'space-around'}} >
-        <div style={{ cursor: 'pointer', fontSize: '50px', marginBottom: '40px' }} className="blue-text" onClick={handleClick2}>  previous</div>
-        <div style={{ cursor: 'pointer', fontSize: '50px', marginBottom: '40px', float: 'right' }} className="blue-text" onClick={handleClick}>next</div>
+      <div className="pageButtons" >
+        <div className="previousButton blue-text" onClick={handleClick2}>  previous</div>
+        <div className="nextButton blue-text" onClick={handleClick}>next</div>
       </div>
+      <Stats videoData={videos} />
     </div>
   );
 }
