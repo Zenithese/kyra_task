@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_KEY, CHANNEL_ID } from './secrets';
+import { API_KEY, CHANNEL_ID, PLAYLIST_ID } from './secrets';
 import List from './list';
 import Stats from './chart';
 
@@ -33,7 +33,7 @@ function App() {
       {
         params: {
           part: 'snippet',
-          playlistId: 'UUvO6uJUVJQ6SrATfsWR5_aA',
+          playlistId: PLAYLIST_ID,
           maxResults: 50,
           pageToken: pt,
           key: API_KEY
@@ -79,7 +79,7 @@ function App() {
       {
         params: {
           part: 'snippet',
-          playlistId: 'UUvO6uJUVJQ6SrATfsWR5_aA',
+          playlistId: PLAYLIST_ID,
           maxResults: 24,
           pageToken: prevPage,
           key: API_KEY
