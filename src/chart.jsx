@@ -43,25 +43,25 @@ export default class Stats extends Component {
     }
 
     render() {
-        let thing = this.props.videoData.length ? (
-            this.props.videoData.map((item) => {
-                let video = item.snippet.publishedAt;
-                return (
-                    video
-                )
-            }).sort()
-        ) : (
-                []
-            )
+        let eighteenMonthsAgo = new Date() - 47304000000;
 
-        let orderThing = this.state.chartType === "ScatterChart" ? countByWeek(thing) : countByMonth(thing)
+        let eighteenMonthsOfVideos = []
+        this.props.videoData.forEach((item) => {
+            let video = item.snippet.publishedAt;
+            if (new Date(video) >= eighteenMonthsAgo) {
+                eighteenMonthsOfVideos.push(video);
+            }
+        })
+        eighteenMonthsOfVideos = eighteenMonthsOfVideos.sort()
+
+        let orderedEighteenMonthsOfVideo = this.state.chartType === "ScatterChart" ? countByWeek(eighteenMonthsOfVideos) : countByMonth(eighteenMonthsOfVideos)
 
         let data = [
-            ...orderThing
+            ...orderedEighteenMonthsOfVideo
         ];
         return (
             <div>
-                {console.log(orderThing)}
+                {console.log(eighteenMonthsOfVideos)}
                 <div className="switch center" onClick={() => this.setChartType()}>
                     <label>
                         Weeks
