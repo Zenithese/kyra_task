@@ -88,21 +88,21 @@ function App() {
     ).then(response => {
       if (response.data.items.length >= 24) {
         setPrevPage(response.data.nextPageToken)
-        // setAllVideos(allVideos.concat(response.data.items))
       } else {
-        // setAllVideos(allVideos.concat(response.data.items))
       }
     })
   }, [prevPage])
 
   return (
     <div>
+      <br/>
       <List videos={videos} nextPage={nextPage} />
       <div className="pageButtons" >
         <div className="previousButton blue-text" onClick={handleClick2}>  previous</div>
         <div className="nextButton blue-text" onClick={handleClick}>next</div>
       </div>
       <Stats videoData={allVideos} />
+      <br/>
     </div>
   );
 }
