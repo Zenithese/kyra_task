@@ -12,7 +12,6 @@ function App() {
   const [prevPage, setPrevPage] = useState('');
   const [pageToken, setPageToken] = useState('');
   const [prevPageToken, setPrevPageToken] = useState('');
-  // const [ data, setData ] = useState([]); 
   const [ pt, setPt ] = useState('')
 
   const handleClick = () => {
